@@ -188,7 +188,9 @@ do_event(EventMapList) ->
 do_scan(Request, Callback) ->
   Scale = maps:get(scale, Request, 1),
   TzDiff = maps:get(tz_diff, Request, 0),
+  Events = maps:get(events, Request, []),
   loki_core:apply(Request#{function => fun ?MODULE:handle_scan/2
+                          ,events => Events
                           ,init => #{callback => Callback
                                     ,scale => Scale
                                     ,tz_diff => TzDiff

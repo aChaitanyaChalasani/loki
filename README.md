@@ -11,7 +11,7 @@ Build
 Frag
 {Uuid, Slot} -> <<Mark:16, Event:16, Size:16, Data:Custom>>
                 <<30:16, 4:16, 0:16>>
-                <<30:16, 10:16, 3:8, 2:8, "123"/binary>>
+                <<30:16, 10:16, 3:16, "123"/binary>>
 
 Slot -> erlang:system_time(second) div ?SLOT
 Frag -> erlang:system_time(second) div ?FRAG
